@@ -14,6 +14,7 @@
         "laravel/tinker": "^2.8",
         "mohamedsabil83/filament-forms-tinyeditor": "^1.7",
         "novadaemon/filament-pretty-json": "^1.0",
+        "phpsa/filament-authentication": "^2.4",
         "sebastiaankloos/filament-code-editor": "^1.1",
         "spatie/valuestore": "^1.3"
     },

@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
 
         app()->call(UserSeeder::class);
         app()->call(PageSeeder::class);
-        Post::factory(33)->create();
-        app()->call(CategorySeeder::class);
-        app()->call(TagSeeder::class);
+//        Post::factory(33)->create();
+//        app()->call(CategorySeeder::class);
+//        app()->call(TagSeeder::class);
         app()->call(AdmFormSeeder::class);
     }
 

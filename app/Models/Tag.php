@@ -13,6 +13,7 @@ class Tag extends Model
     protected $fillable = [
         'title',
         'slug',
+        'type',
     ];
 
     public function posts(): MorphToMany

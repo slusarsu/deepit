@@ -28,6 +28,7 @@ class Category extends Model
         'content',
         'thumb',
         'is_enabled',
+        'type',
     ];
 
     protected $casts = [

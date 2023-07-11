@@ -1,25 +1,25 @@
 <?php
 
-namespace app\Console\Commands;
+namespace App\Console\Commands;
 
-use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
-class StartCommand extends Command
+class AdmDemoCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'adm:start';
+    protected $signature = 'adm:demo';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Adding demo data';
 
     /**
      * Execute the console command.
@@ -30,15 +30,11 @@ class StartCommand extends Command
         $this->info("-- migrations done");
         $this->call('optimize:clear');
 
-        $user = User::query()->where('email', 'admin@admin.com')->first();
-
-        if(!$user) {
-            $this->call('cache:clear');
-            $this->call('db:seed');
-            $this->info("-- data added to db");
-        }
-
-        $this->call('storage:link');
+        $this->call('cache:clear');
+        Artisan::call('db:seed --class=PostSeeder');
+        Artisan::call('db:seed --class=CategorySeeder');
+        Artisan::call('db:seed --class=TagSeeder');
+        $this->info("-- data added to db");
         $this->call('optimize:clear');
     }
 }

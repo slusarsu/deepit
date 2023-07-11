@@ -29,6 +29,7 @@ class Post extends Model
         'seo_text_keys',
         'seo_description',
         'views',
+        'type',
     ];
 
     protected $casts = [

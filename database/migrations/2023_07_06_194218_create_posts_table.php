@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('seo_title')->nullable();
             $table->string('seo_text_keys')->nullable();
             $table->string('seo_description')->nullable();
+            $table->string('type')->nullable();
             $table->bigInteger('views')->default(1);
             $table->softDeletesDatetime();
             $table->timestamps();
