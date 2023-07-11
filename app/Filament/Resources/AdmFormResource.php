@@ -20,6 +20,8 @@ use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use Webbingbrasil\FilamentCopyActions\Forms\Actions\CopyAction;
+use Webbingbrasil\FilamentCopyActions\Tables\Actions\CopyAction as CopyActionTable;
 
 class AdmFormResource extends Resource
 {
@@ -71,7 +73,8 @@ class AdmFormResource extends Resource
                         ->schema([
                             TextInput::make('link_hash')
                                 ->disabled()
-                                ->default(Str::random(15)),
+                                ->default(Str::random(15))
+                                ->suffixAction(CopyAction::make()),
 
                             Toggle::make('is_enabled')
                                 ->default(true),
@@ -105,6 +108,9 @@ class AdmFormResource extends Resource
                 //
             ])
             ->actions([
+                CopyActionTable::make()
+                    ->label('Copy Hash')
+                    ->copyable(fn ($record) => $record->link_hash),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])

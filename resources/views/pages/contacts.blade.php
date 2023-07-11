@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="col-lg-6 mt-4 mt-lg-0">
-            <form method="post" action="{{admFormAction('Mtwstsqf0sLQccF')}}" class="row">
+            <form method="post" action="{{admFormAction($cf['form_hash'])}}" class="row">
                 @csrf
                 <div class="col-md-6">
                     <input type="text" class="form-control mb-4" placeholder="Name" name="name" id="name">

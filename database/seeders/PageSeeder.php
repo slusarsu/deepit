@@ -38,6 +38,13 @@ class PageSeeder extends Seeder
                         "field_name" => "address"
                     ],
                     "type" => "text_input"
+                ],
+                [
+                    "data" => [
+                        "text" => "Mtwstsqf0sLQccF",
+                        "field_name" => "form_hash"
+                    ],
+                    "type" => "text_input"
                 ]
             ],
             'images' => [],
