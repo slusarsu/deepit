@@ -42,7 +42,7 @@
             @endforeach
         </ul>
         <div class="content text-left">
-            {{$post->content}}
+            {!! $post->content !!}
         </div>
         <ul class="post-meta my-4">
             @foreach($post->tags as $tag)
