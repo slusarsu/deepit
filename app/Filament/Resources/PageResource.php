@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Adm\Services\PageService;
 use App\Filament\Resources\PageResource\Pages;
+use App\Filament\Resources\PageResource\Widgets\PageStatsOverview;
 use App\Models\Page;
 use Filament\Forms\Components\Builder as FromBuilder;
 use Filament\Forms\Components\Builder\Block;
@@ -224,6 +225,13 @@ class PageResource extends Resource
     {
         return [
             //
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            PageStatsOverview::class
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
+use App\Filament\Resources\PostResource\Widgets\PostStatsOverview;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
@@ -214,6 +215,13 @@ class PostResource extends Resource
     {
         return [
             //
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            PostStatsOverview::class
         ];
     }
 
