@@ -12,7 +12,7 @@
         <a href="{{$page->link()}}">{{$page->title}}</a>
     </div>
 
-    <img loading="lazy" decoding="async" src="{{$thumb ?? randomImage()}}" class="img-fluid w-100 mb-4" alt="Author Image">
+    <img loading="lazy" decoding="async" src="{{$thumb ?? admRandomImage()}}" class="img-fluid w-100 mb-4" alt="Author Image">
     <h1 class="mb-4">{{$page->title}}</h1>
     <div class="content">
         {!! $page->content !!}

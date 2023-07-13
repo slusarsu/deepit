@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace App\Adm\Providers;
 
 use Filament\Facades\Filament;
 use Illuminate\Pagination\Paginator;
@@ -22,6 +22,7 @@ class AdmServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->loadViewsFrom(__DIR__.'/../Resources', 'adm');
         $site = siteSettingsAll();
         View::share('site', $site);
         Paginator::useBootstrap();

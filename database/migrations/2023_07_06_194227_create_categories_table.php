@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('seo_text_keys')->nullable();
             $table->string('type')->nullable();
             $table->string('seo_description')->nullable();
+            $table->string('locale')->nullable();
             $table->timestamps();
         });
     }

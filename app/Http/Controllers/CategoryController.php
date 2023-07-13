@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\CategoryService;
-use App\Services\PostService;
+use App\Adm\Services\CategoryService;
+use App\Adm\Services\PostService;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,6 +14,13 @@ class CategoryController extends Controller
     {
         $this->categoryService = $categoryService;
         $this->postService = $postService;
+    }
+
+    public function index(Request $request)
+    {
+        $categories = $this->categoryService::getAllParents();
+
+        return view('categories', compact('categories'));
     }
 
     public function show(Request $request, $slug)

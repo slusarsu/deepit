@@ -26,6 +26,8 @@
     {!! $site['metaPixelCode'] !!}
     {!! $site['customHeaderCode'] !!}
 
+    @stack('header-code')
+
     <style>
         {!! $site['customCss'] !!}
     </style>

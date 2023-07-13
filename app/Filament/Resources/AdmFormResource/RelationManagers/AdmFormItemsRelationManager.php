@@ -2,22 +2,15 @@
 
 namespace App\Filament\Resources\AdmFormResource\RelationManagers;
 
+use App\Adm\Services\AdmFormService;
 use App\Enums\AdmMailStatusEnum;
-use App\Services\AdmFormService;
-use Filament\Forms;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\BadgeColumn;
-use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Novadaemon\FilamentPrettyJson\PrettyJson;
 
 class AdmFormItemsRelationManager extends RelationManager

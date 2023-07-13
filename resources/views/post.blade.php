@@ -15,7 +15,7 @@
         <a href="{{$post->link()}}">{{$post->title}}</a>
     </div>
     <article>
-        <img loading="lazy" decoding="async" src="{{$thumb ?? randomImage()}}" alt="Post Thumbnail" class="w-100">
+        <img loading="lazy" decoding="async" src="{{$thumb ?? admRandomImage()}}" alt="Post Thumbnail" class="w-100">
 
         <div class="d-flex justify-content-between mt-3">
             <div>

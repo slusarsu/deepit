@@ -2,7 +2,7 @@
 
 namespace App\View\Components;
 
-use App\Services\ChunkService;
+use App\Adm\Services\ChunkService;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -24,6 +24,6 @@ class Chunk extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.chunk');
+        return view('adm::components.chunk');
     }
 }

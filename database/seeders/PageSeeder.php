@@ -56,8 +56,8 @@ class PageSeeder extends Seeder
         Page::query()->create([
             'title' => 'About me',
             'slug' => 'about-me',
-            'short' => "<p><span style=\"color: #333333; font-family: 'Work Sans', sans-serif; font-size: 16px; background-color: #ffffff;\">Hello, I&rsquo;m Hootan Safiyari. A Content writter, Developer and Story teller. Working as a Content writter at CoolTech Agency. Quam nihil &hellip;</span></p>",
-            'content' => "<p><span style=\"color: #333333; font-family: 'Work Sans', sans-serif; font-size: 16px; background-color: #ffffff;\">Hello, I&rsquo;m Hootan Safiyari. A Content writter, Developer and Story teller. Working as a Content writter at CoolTech Agency. Quam nihil enim maxime corporis cumque totam aliquid nam sint inventore optio modi neque laborum officiis necessitatibus, facilis placeat pariatur! Voluptatem, sed harum pariatur adipisci voluptates voluptatum cumque, porro sint minima similique magni perferendis fuga! Optio vel ipsum excepturi tempore reiciendis id quidem? Vel in, doloribus debitis nesciunt fugit sequi magnam accusantium modi neque quis, vitae velit, pariatur harum autem a! Velit impedit atque maiores animi possimus asperiores natus repellendus excepturi sint architecto eligendi non, omnis nihil. Facilis, doloremque illum. Fugit optio laborum minus debitis natus illo perspiciatis corporis voluptatum rerum laboriosam.</span></p>
+            'short' => "<p><span style=\"color: #333333; font-family: 'Work Sans', sans-serif; font-size: 16px; background-color: #ffffff;\">Hello, I&rsquo;m John Doe. A Content writter, Developer and Story teller. Working as a Content writter at CoolTech Agency. Quam nihil &hellip;</span></p>",
+            'content' => "<p><span style=\"color: #333333; font-family: 'Work Sans', sans-serif; font-size: 16px; background-color: #ffffff;\">Hello, I&rsquo;m John Doe. A Content writter, Developer and Story teller. Working as a Content writter at CoolTech Agency. Quam nihil enim maxime corporis cumque totam aliquid nam sint inventore optio modi neque laborum officiis necessitatibus, facilis placeat pariatur! Voluptatem, sed harum pariatur adipisci voluptates voluptatum cumque, porro sint minima similique magni perferendis fuga! Optio vel ipsum excepturi tempore reiciendis id quidem? Vel in, doloribus debitis nesciunt fugit sequi magnam accusantium modi neque quis, vitae velit, pariatur harum autem a! Velit impedit atque maiores animi possimus asperiores natus repellendus excepturi sint architecto eligendi non, omnis nihil. Facilis, doloremque illum. Fugit optio laborum minus debitis natus illo perspiciatis corporis voluptatum rerum laboriosam.</span></p>
 <blockquote>
 <p><span style=\"color: #333333; font-family: 'Work Sans', sans-serif; font-size: 20px; font-style: italic; background-color: #ffffff;\">Facilis, doloremque illum. Fugit optio laborum minus debitis natus illo perspiciatis corporis voluptatum rerum laboriosam.</span></p>
 </blockquote>
@@ -65,7 +65,7 @@ class PageSeeder extends Seeder
             'custom_fields' => [
                 [
                     "data" => [
-                        "text" => "Hootan Safiyari",
+                        "text" => "John Doe",
                         "field_name" => "name"
                     ],
                     "type" => "text_input"

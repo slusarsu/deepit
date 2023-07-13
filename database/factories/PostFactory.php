@@ -23,7 +23,7 @@ class PostFactory extends Factory
             'short' => fake()->text(),
             'content' => fake()->text(),
             'is_enabled' => true,
-            'seo_title'=> fake()->title,
+            'seo_title'=> fake()->text(50),
             'seo_text_keys'=> 'test1, test2, test3',
             'seo_description' => fake()->text(),
             'views' => rand(5,400),

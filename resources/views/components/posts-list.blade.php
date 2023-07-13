@@ -20,7 +20,7 @@
                                         {{$post->views}}
                                     </span>
                                 </div>
-                                <img loading="lazy" decoding="async" src="{{$post->thumb() ?? randomImage()}}" alt="Post Thumbnail" class="w-100">
+                                <img loading="lazy" decoding="async" src="{{$post->thumb() ?? admRandomImage()}}" alt="Post Thumbnail" class="w-100">
                             </div>
                         </a>
                         <div class="card-body px-0 pb-1">
@@ -32,21 +32,28 @@
                                         @endforeach
                                     </li>
                                 </ul>
-                                <ul class="post-meta mb-2" title="tags">
-                                    <li>
-                                        @foreach($post->tags as $tag)
-                                            <a href="{{$tag->link()}}">{{$tag->title}}</a>
-                                        @endforeach
-                                    </li>
-                                </ul>
                             </div>
 
                             <h2 class="h1">
                                 <a class="post-title" href="{{$post->link()}}">{{$post->title}}</a>
                             </h2>
+
                             <p class="card-text">{!! $post->short !!}</p>
-                            <div class="content"> <a class="read-more-btn" href="{{$post->link()}}">Read Full Article</a>
+
+                            <ul class="post-meta mb-2" title="tags">
+                                <li>
+                                    @foreach($post->tags as $tag)
+                                        <a href="{{$tag->link()}}">{{$tag->title}}</a>
+                                    @endforeach
+                                </li>
+                            </ul>
+
+                            <div class="content">
+                                <a class="read-more-btn" href="{{$post->link()}}">
+                                    Read Full Article
+                                </a>
                             </div>
+
                         </div>
                     </article>
                 </div>
@@ -67,7 +74,7 @@
                                         {{$post->views}}
                                     </span>
                                 </div>
-                                <img loading="lazy" decoding="async" src="{{$post->thumb() ?? randomImage()}}" alt="Post Thumbnail" class="w-100">
+                                <img loading="lazy" decoding="async" src="{{$post->thumb() ?? admRandomImage()}}" alt="Post Thumbnail" class="w-100">
                             </div>
                         </a>
                         <div class="card-body px-0 pb-0">

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\PageService;
-use App\Services\PostService;
+use App\Adm\Services\PageService;
+use App\Adm\Services\PostService;
 use Illuminate\Http\Request;
 
 class PageController extends Controller

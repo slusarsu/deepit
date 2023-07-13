@@ -23,7 +23,7 @@ use Spatie\Valuestore\Valuestore;
 
     protected static string $view = 'filament.pages.settings';
 
-    protected static ?int $navigationSort = 0;
+    protected static ?int $navigationSort = 4;
 
     protected Valuestore $valueStore;
 
@@ -51,6 +51,7 @@ use Spatie\Valuestore\Valuestore;
             'logo' => $this->valueStore->get('logo'),
             'footerLogo' => $this->valueStore->get('footerLogo'),
             'email' => $this->valueStore->get('email'),
+            'copyright' => $this->valueStore->get('copyright'),
         ]);
     }
 
@@ -65,6 +66,7 @@ use Spatie\Valuestore\Valuestore;
                             ->schema([
                                 TextInput::make('name'),
                                 TextInput::make('email')->email(true),
+                                TextInput::make('copyright'),
 
                                 FileUpload::make('logo')
                                     ->directory('logo')

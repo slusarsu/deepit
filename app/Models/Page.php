@@ -30,6 +30,7 @@ class Page extends Model
         'seo_text_keys',
         'seo_description',
         'views',
+        'locale',
     ];
 
     protected $casts = [

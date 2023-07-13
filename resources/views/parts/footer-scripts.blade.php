@@ -5,4 +5,6 @@
 <!-- Main Script -->
 <script src="{{asset('assets/js/script.js')}}"></script>
 
+@stack('footer-code')
+
 {!! $site['customFooterCode'] !!}

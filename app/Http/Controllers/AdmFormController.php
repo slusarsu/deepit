@@ -2,23 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\AdmMailStatusEnum;
-use App\Mail\AdmFormEmail;
+use App\Adm\Services\AdmFormService;
 use App\Models\AdmForm;
 use App\Models\AdmFormItem;
-use App\Services\AdmFormService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use mysql_xdevapi\Exception;
+use Illuminate\Support\Facades\Http;
 
 class AdmFormController extends Controller
 {
     public function form(Request $request, $link_hash)
     {
-        $admForm = AdmForm::query()
-            ->where('link_hash', $link_hash)
-            ->with('admFormItems')
-            ->first();
+        $gRecaptchaResponse = $request->get('g-recaptcha-response');
+
+        if($gRecaptchaResponse) {
+            $ip = $request->ip();
+            $recaptchaStatus = AdmFormService::checkRecaptcha3($gRecaptchaResponse, $ip);
+
+            if(!$recaptchaStatus) {
+                return back()->with('adm_form_err', 'error');
+            }
+        }
+
+        $admForm = AdmFormService::byHash($link_hash);
 
         if(!$admForm) {
             return back()->with('adm_form_err', 'error');

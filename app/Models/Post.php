@@ -30,6 +30,7 @@ class Post extends Model
         'seo_description',
         'views',
         'type',
+        'locale',
     ];
 
     protected $casts = [

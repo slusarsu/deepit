@@ -29,6 +29,7 @@ class Category extends Model
         'thumb',
         'is_enabled',
         'type',
+        'locale',
     ];
 
     protected $casts = [

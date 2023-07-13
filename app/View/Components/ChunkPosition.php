@@ -2,11 +2,10 @@
 
 namespace App\View\Components;
 
-use App\Services\ChunkService;
+use App\Adm\Services\ChunkService;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use App\Models\Chunk as ChunkModel;
 
 class ChunkPosition extends Component
 {
@@ -28,6 +27,6 @@ class ChunkPosition extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.chunk-position');
+        return view('adm::components.chunk-position');
     }
 }

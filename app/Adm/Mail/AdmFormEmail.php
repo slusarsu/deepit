@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Mail;
+namespace App\Adm\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -41,7 +39,7 @@ class AdmFormEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mails.adm-form',
+            view: 'adm:mails.adm-form',
         );
     }
 

@@ -5,6 +5,16 @@
 //    'sidebar' => false,
     ])
 
+@push('header-code')
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script>
+        function onSubmit(token) {
+            document.getElementById("contact-form").submit();
+        }
+    </script>
+@endpush
+
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -32,7 +42,7 @@
             </div>
         </div>
         <div class="col-lg-6 mt-4 mt-lg-0">
-            <form method="post" action="{{admFormAction($cf['form_hash'])}}" class="row">
+            <form method="post" action="{{admFormAction($cf['form_hash'])}}" class="row" id="contact-form">
                 @csrf
                 <div class="col-md-6">
                     <input type="text" class="form-control mb-4" placeholder="Name" name="name" id="name">
@@ -47,7 +57,15 @@
                     <textarea name="message" id="message" class="form-control mb-4" placeholder="Type You Message Here" rows="5"></textarea>
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-outline-primary" type="submit">Send Message</button>
+                    <button
+                        class="g-recaptcha btn btn-outline-primary"
+                        type="submit"
+                        data-sitekey="{{env('RECAPTCHA_SITE_KEY')}}"
+                        data-callback='onSubmit'
+                        data-action='submit'
+                    >
+                        Send Message
+                    </button>
                 </div>
             </form>
         </div>

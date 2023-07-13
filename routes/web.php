@@ -23,6 +23,7 @@ Route::get('/', function () {
 })->name('home');
 Route::post('/adm-form/{link_hash}', [AdmFormController::class, 'form'])->name('adm-form');
 Route::get('/adm-search', [PageController::class, 'search'])->name('adm-search');
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('{slug}', [PageController::class, 'show'])->name('page');

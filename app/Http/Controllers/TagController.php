@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\CategoryService;
-use App\Services\PostService;
-use App\Services\TagService;
+use App\Adm\Services\PostService;
+use App\Adm\Services\TagService;
 use Illuminate\Http\Request;
 
 class TagController extends Controller

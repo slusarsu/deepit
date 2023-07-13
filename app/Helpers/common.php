@@ -1,9 +1,11 @@
 <?php
 
-use App\Services\CategoryService;
-use App\Services\PageService;
-use App\Services\PostService;
-use App\Services\TagService;
+use App\Adm\Services\CategoryService;
+use App\Adm\Services\MenuService;
+use App\Adm\Services\PageService;
+use App\Adm\Services\PostService;
+use App\Adm\Services\TagService;
+use App\Models\MenuItem;
 use Spatie\Valuestore\Valuestore;
 
 function siteSetting(): Valuestore
@@ -60,8 +62,18 @@ function getPopularPosts(?int $paginationCount = 5, ?string $categorySlug = '') 
     return PostService::popularPosts($paginationCount, $categorySlug);
 }
 
-function randomImage(): string
+function AdmRandomImage(): string
 {
-    $rand = rand(1,11);
+    $rand = rand(1,21);
     return '/images/random/'.$rand.'.jpg';
+}
+
+function admMenuBySlug($slug) {
+    $menu = MenuService::bySlug($slug);
+    return !empty($menu->menu_items) ? MenuItem::tree($menu->id) : $menu->menu_items ?? [];
+}
+
+function admMenuByPosition($position) {
+    $menu = MenuService::byPosition($position);
+    return !empty($menu->menu_items) ? MenuItem::tree($menu->id) : $menu->menu_items ?? [];
 }

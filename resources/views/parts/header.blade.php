@@ -12,28 +12,30 @@
             <form action="{{route('adm-search')}}" class="search order-lg-3 order-md-2 order-3 ml-auto">
                 <input id="search-query" name="s" type="search" placeholder="Search..." autocomplete="off">
             </form>
+            <!-- MENU -->
             <div class="collapse navbar-collapse text-center order-lg-2 order-4" id="navigation">
                 <ul class="navbar-nav mx-auto mt-3 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{pageLink('about-me')}}">
-                            About Me
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Categories
-                        </a>
-                        <div class="dropdown-menu">
-                            @foreach(parentsCategories() as $category)
-                                <a class="dropdown-item" href="{{$category->link()}}">{{$category->title}}</a>
-                            @endforeach
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{pageLink('contacts')}}">
-                            Contact
-                        </a>
-                    </li>
+                    @foreach(admMenuByPosition('header') as $item)
+                        @if($item->link == '/categories')
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="{{$item->link}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{$item->title}}
+                                </a>
+                                <div class="dropdown-menu">
+                                    @foreach(parentsCategories() as $category)
+                                        <a class="dropdown-item" href="{{$category->link()}}">{{$category->title}}</a>
+                                    @endforeach
+                                </div>
+                            </li>
+                            @continue
+                        @endif
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{$item->link()}}">
+                                {{$item->title}}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </nav>

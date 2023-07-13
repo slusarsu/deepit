@@ -186,9 +186,6 @@ class PostResource extends Resource
                 IconColumn::make('is_enabled')
                     ->boolean(),
 
-                TextColumn::make('lang')
-                    ->sortable(),
-
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable(),

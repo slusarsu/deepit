@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Services;
+namespace App\Adm\Services;
 
-use App\Models\Category;
-use App\Models\Page;
 use App\Models\Post;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
+
 class PostService
 {    public function getAll(?int $paginationCount = 10): LengthAwarePaginator
     {

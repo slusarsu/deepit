@@ -12,7 +12,7 @@
                                 </span>
                             </div>
 
-                            <img loading="lazy" decoding="async" src="{{$post->thumb() ?? randomImage()}}" alt="{{$post->title}}" class="w-100">
+                            <img loading="lazy" decoding="async" src="{{$post->thumb() ?? admRandomImage()}}" alt="{{$post->title}}" class="w-100">
 
                         </div>
 
@@ -33,7 +33,7 @@
                 @endif
 
                 <a class="media align-items-center" href="{{$post->link()}}" id="popular-post-{{$post->id}}">
-                    <img loading="lazy" decoding="async" src="{{$post->thumb() ?? randomImage()}}" alt="{{$post->title}}" class="w-100">
+                    <img loading="lazy" decoding="async" src="{{$post->thumb() ?? admRandomImage()}}" alt="{{$post->title}}" class="w-100">
 
                     <div class="media-body ml-3">
                         <h3 style="margin-top:-5px">{{$post->title}}</h3>
