@@ -26,6 +26,8 @@ class AdmStartCommand extends Command
      */
     public function handle(): void
     {
+        $this->call('optimize:clear');
+        $this->call('key:generate');
         $this->call('migrate');
         $this->info("-- migrations done");
         $this->call('optimize:clear');
