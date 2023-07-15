@@ -24,6 +24,14 @@
                 <a href="{{$page->link()}}">{{$page->title}}</a>
             </div>
         </div>
+        <div class="col-12">
+            @if ($message = Session::get('adm_form_success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
+        </div>
         <div class="col-lg-4">
             <div class="pr-0 pr-lg-4">
                 <div class="content">{!! $page->short !!}
@@ -45,27 +53,26 @@
             <form method="post" action="{{admFormAction($cf['form_hash'])}}" class="row" id="contact-form">
                 @csrf
                 <div class="col-md-6">
-                    <input type="text" class="form-control mb-4" placeholder="Name" name="name" id="name">
+                    <input type="text" class="form-control mb-4" placeholder="Name" name="name" id="name" required>
                 </div>
                 <div class="col-md-6">
-                    <input type="email" class="form-control mb-4" placeholder="Email" name="email" id="email">
+                    <input type="email" class="form-control mb-4" placeholder="Email" name="email" id="email" required>
                 </div>
                 <div class="col-12">
-                    <input type="text" class="form-control mb-4" placeholder="Subject" name="subject" id="subject">
+                    <input type="text" class="form-control mb-4" placeholder="Subject" name="subject" id="subject" required>
                 </div>
                 <div class="col-12">
                     <textarea name="message" id="message" class="form-control mb-4" placeholder="Type You Message Here" rows="5"></textarea>
                 </div>
                 <div class="col-12">
-                    <button
+                    <input
                         class="g-recaptcha btn btn-outline-primary"
-                        type="submit"
                         data-sitekey="{{env('RECAPTCHA_SITE_KEY')}}"
                         data-callback='onSubmit'
                         data-action='submit'
+                        type="submit"
+                        value="Send Message"
                     >
-                        Send Message
-                    </button>
                 </div>
             </form>
         </div>

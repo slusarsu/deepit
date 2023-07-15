@@ -156,7 +156,8 @@ class CategoryResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-            ]);
+            ])
+            ->defaultSort('order', 'asc');
     }
 
     public static function getRelations(): array

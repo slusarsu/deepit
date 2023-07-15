@@ -49,15 +49,18 @@ class AdmFormItemsRelationManager extends RelationManager
 //                Tables\Actions\CreateAction::make(),
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
+
                 Action::make('Send')
                     ->action(fn ($record) => AdmFormService::sendEmailForItem($record))
                     ->icon('heroicon-s-paper-airplane')
                     ->requiresConfirmation(),
-                Tables\Actions\EditAction::make(),
+
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-            ]);
+            ])
+            ->defaultSort('created_at', 'desc');
     }
 }

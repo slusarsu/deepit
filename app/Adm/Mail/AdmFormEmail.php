@@ -39,7 +39,7 @@ class AdmFormEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'adm:mails.adm-form',
+            view: 'adm::mails.adm-form',
         );
     }
 

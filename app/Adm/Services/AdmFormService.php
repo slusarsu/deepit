@@ -7,6 +7,7 @@ use App\Enums\AdmMailStatusEnum;
 use App\Models\AdmForm;
 use App\Models\AdmFormItem;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class AdmFormService
@@ -16,14 +17,21 @@ class AdmFormService
         $email = siteSetting()->get('email') ?? env('MAIL_FROM_ADDRESS');
         try {
             Mail::to($email)->send(new AdmFormEmail($item->payload));
-            AdmFormItem::query()->where('id', $item->id)->update([
-                'status' => AdmMailStatusEnum::SENT->value
-            ]);
+            $status = AdmMailStatusEnum::SENT->value;
         }catch (\Exception $e) {
-            AdmFormItem::query()->where('id', $item->id)->update([
-                'status' => AdmMailStatusEnum::ERROR_SENT->value
-            ]);
+            Log::error($e->getMessage());
+            dd($e->getMessage());
+            $status = AdmMailStatusEnum::ERROR_SENT->value;
+        } finally {
+            self::updateItemStatus($item->id, $status);
         }
+    }
+
+    public static function updateItemStatus(int $itemId, string $status): bool
+    {
+        return AdmFormItem::query()->where('id', $itemId)->update([
+            'status' => $status
+        ]);
     }
 
     public static function byHash(string $hash)
