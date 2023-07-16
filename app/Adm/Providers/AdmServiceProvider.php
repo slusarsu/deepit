@@ -3,6 +3,7 @@
 namespace App\Adm\Providers;
 
 use Filament\Facades\Filament;
+use Filament\Navigation\NavigationGroup;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -29,6 +30,18 @@ class AdmServiceProvider extends ServiceProvider
         Filament::serving(function () {
             // Using Vite
             Filament::registerViteTheme('resources/css/filament.css');
+
+            Filament::registerNavigationGroups([
+                NavigationGroup::make()
+                    ->label('Content'),
+                NavigationGroup::make()
+                    ->label('Tools'),
+                NavigationGroup::make()
+                    ->label('Authentication'),
+                NavigationGroup::make()
+                    ->label('System'),
+            ]);
+
         });
     }
 }
