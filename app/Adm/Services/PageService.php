@@ -9,7 +9,7 @@ class PageService
 {
     public static function getListOfPageTemplates(): array
     {
-        $pagePaths = Storage::disk('views')->files('pages');
+        $pagePaths = Storage::disk('views')->files('template/pages');
         $templates = [];
         foreach ($pagePaths as $item) {
             $itemArr = explode('/', $item);

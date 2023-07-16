@@ -12,6 +12,8 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Notifications\Notification;
+use Filament\Pages\Actions\Action;
+use Filament\Pages\Actions\ActionGroup;
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Artisan;
 use Spatie\Valuestore\Valuestore;
@@ -138,6 +140,28 @@ use Spatie\Valuestore\Valuestore;
             ->icon('heroicon-o-sparkles')
             ->iconColor('success')
             ->send();
+    }
+
+    protected function getActions(): array
+    {
+        return [
+
+            Action::make('Clear Cache')
+                ->action(fn () => Artisan::call('optimize:clear'))
+                ->requiresConfirmation()
+                ->color('success'),
+
+            ActionGroup::make([
+                Action::make('Add Demo')
+                    ->action(fn () => Artisan::call('adm:demo'))
+                    ->requiresConfirmation()
+                    ->color('danger'),
+                Action::make('Remove Demo')
+                    ->action(fn () => Artisan::call('adm:demo-remove'))
+                    ->requiresConfirmation()
+                    ->color('danger'),
+            ])->label('Demo Data')->color('danger'),
+        ];
     }
 
 }

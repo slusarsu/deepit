@@ -1,4 +1,4 @@
-@extends('layouts.main', [
+@extends('template.layouts.main', [
     'title' => $page->seo_title ?? $page->title,
     'seoDescription' => $page->seo_description,
     'seoKeyWords' => $page->seo_text_keys,

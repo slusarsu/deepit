@@ -22,6 +22,6 @@ class TagController extends Controller
 
         $posts = $this->postService->getAllByTagSlug($slug, globalPaginationCount());
 
-        return view('tag', compact('tag', 'posts'));
+        return view('template.tag', compact('tag', 'posts'));
     }
 }

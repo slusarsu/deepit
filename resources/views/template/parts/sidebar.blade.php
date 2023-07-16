@@ -6,13 +6,13 @@
         </div>
         <div class="col-lg-12 col-md-6">
             <x-chunk-position :position="'sidebar'"/>
-            @includeIf('parts.sidebar.popular-posts')
+            @includeIf('template.parts.sidebar.popular-posts')
         </div>
         <div class="col-lg-12 col-md-6">
-            @includeIf('parts.sidebar.categories')
+            @includeIf('template.parts.sidebar.categories')
         </div>
         <div class="col-lg-12 col-md-6">
-            @includeIf('parts.sidebar.tags')
+            @includeIf('template.parts.sidebar.tags')
         </div>
     </div>
 </div>

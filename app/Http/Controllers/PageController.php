@@ -21,7 +21,7 @@ class PageController extends Controller
     {
         $posts = $this->postService->getAll(globalPaginationCount());
 
-        return view('index', compact('posts'));
+        return view('template.index', compact('posts'));
     }
 
     public function show(Request $request, $slug)
@@ -37,7 +37,7 @@ class PageController extends Controller
         $images = $page->images();
         $template = !empty($page->template) ? $page->template : 'page';
 
-        return view('pages.'.$template, compact('page', 'cf', 'thumb', 'images'));
+        return view('template.pages.'.$template, compact('page', 'cf', 'thumb', 'images'));
     }
 
     public function search(Request $request)
@@ -48,6 +48,6 @@ class PageController extends Controller
         }
         $posts = $this->postService->searchByPhrase($phrase, globalPaginationCount());
 
-        return view('search', compact('posts', 'phrase'));
+        return view('template.search', compact('posts', 'phrase'));
     }
 }

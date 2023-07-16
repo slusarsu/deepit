@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('template.index');
 })->name('home');
 Route::post('/adm-form/{link_hash}', [AdmFormController::class, 'form'])->name('adm-form');
 Route::get('/adm-search', [PageController::class, 'search'])->name('adm-search');

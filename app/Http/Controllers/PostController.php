@@ -25,6 +25,6 @@ class PostController extends Controller
         $thumb = $post->thumb();
         $images = $post->images();
 
-        return view('post', compact('post', 'thumb', 'images'));
+        return view('template.post', compact('post', 'thumb', 'images'));
     }
 }

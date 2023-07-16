@@ -20,7 +20,7 @@ class CategoryController extends Controller
     {
         $categories = $this->categoryService::getAllParents();
 
-        return view('categories', compact('categories'));
+        return view('template.categories', compact('categories'));
     }
 
     public function show(Request $request, $slug)
@@ -29,6 +29,6 @@ class CategoryController extends Controller
 
         $posts = $this->postService->getAllByCategorySlug($slug, globalPaginationCount());
 
-        return view('category', compact('category', 'posts'));
+        return view('template.category', compact('category', 'posts'));
     }
 }

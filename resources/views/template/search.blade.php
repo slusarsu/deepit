@@ -1,4 +1,4 @@
-@extends('layouts.main', [
+@extends('template.layouts.main', [
     'title' => 'Search',
     'seoDescription' => 'Search',
     'seoKeyWords' => 'Search',
