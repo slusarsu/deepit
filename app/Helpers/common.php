@@ -18,9 +18,11 @@ function siteSettingsAll(): array
     return siteSetting()->all();
 }
 
-function siteLogoUrl(): string
+function admLogoUrl(?string $logoName = 'logo'): string
 {
-    return !empty(siteSetting()->get('logo')) ?  '/storage/'.siteSetting()->get('logo') : asset('assets/images/logo.png');
+    return !empty(siteSetting()->get($logoName))
+        ?  '/storage/'.siteSetting()->get($logoName)
+        : asset('assets/images/'.$logoName.'.png');
 }
 
 function globalPaginationCount(): int

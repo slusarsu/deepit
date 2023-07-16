@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-10 mx-auto text-center">
                 <a class="d-inline-block mb-4 pb-2" href="index.html">
-                    <img loading="prelaod" decoding="async" class="img-fluid" src="{{asset('assets/images/logo-white.png')}}" alt="Reporter Hugo">
+                    <img loading="prelaod" decoding="async" class="img-fluid" src="{{admLogoUrl('logoFooter')}}" alt="{{$site['name']}}">
                 </a>
                 <ul class="p-0 d-flex navbar-footer mb-0 list-unstyled">
                     @foreach(admMenuByPosition('footer') as $item)
