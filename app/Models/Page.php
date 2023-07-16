@@ -54,6 +54,10 @@ class Page extends Model
     {
         $fields = [];
 
+        if(empty($this->custom_fields)) {
+            return $fields;
+        }
+
         foreach($this->custom_fields as $field) {
             $fieldName = $field['data']['field_name'];
             $fields[$fieldName] = Arr::first($field['data']);

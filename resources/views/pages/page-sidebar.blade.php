@@ -2,7 +2,7 @@
     'title' => $page->seo_title ?? $page->title,
     'seoDescription' => $page->seo_description,
     'seoKeyWords' => $page->seo_text_keys,
-    'sidebar' => false,
+    'sidebar' => true,
     ])
 
 @section('content')

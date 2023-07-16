@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Post;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,10 +21,9 @@ class DatabaseSeeder extends Seeder
 
         app()->call(UserSeeder::class);
         app()->call(PageSeeder::class);
-//        Post::factory(33)->create();
-//        app()->call(CategorySeeder::class);
-//        app()->call(TagSeeder::class);
         app()->call(AdmFormSeeder::class);
+        app()->call(MenuSeeder::class);
+        app()->call(MenuItemSeeder::class);
     }
 
     public function sleep()
