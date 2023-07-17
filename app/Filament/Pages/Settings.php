@@ -61,65 +61,60 @@ use Spatie\Valuestore\Valuestore;
     {
 
         return [
-            Card::make()->schema([
-                Tabs::make('Heading')
-                    ->tabs([
-                        Tab::make('Site settings')
-                            ->schema([
-                                TextInput::make('name'),
-                                TextInput::make('email')->email(true),
-                                TextInput::make('copyright'),
+            Tabs::make('Heading')
+                ->tabs([
+                    Tab::make('Site settings')
+                        ->schema([
+                            TextInput::make('name'),
+                            TextInput::make('email')->email(true),
+                            TextInput::make('copyright'),
 
-                                FileUpload::make('logo')
-                                    ->directory('logo')
-                                    ->image(),
+                            FileUpload::make('logo')
+                                ->directory('logo')
+                                ->image(),
 
-                                FileUpload::make('footerLogo')
-                                    ->directory('logo')
-                                    ->image(),
+                            FileUpload::make('footerLogo')
+                                ->directory('logo')
+                                ->image(),
 
-                                Toggle::make('isEnabled')
-                                    ->default(true),
-                            ]),
-                        Tab::make('SEO')
-                            ->schema([
-                                TextInput::make('author'),
-                                TextInput::make('seoTitle'),
-                                TextInput::make('seoKeyWords'),
-                                Textarea::make('seoDescription'),
-                                CodeField::make('googleTagManager')
-                                    ->htmlField()
-                                    ->withLineNumbers(),
-                                CodeField::make('metaPixelCode')
-                                    ->htmlField()
-                                    ->withLineNumbers(),
-                            ]),
-                        Tab::make('Content')
-                            ->schema([
-                                TextInput::make('paginationCount')
-                                    ->integer(true)
-                                    ->default(9),
-                            ]),
-                        Tab::make('Customization')
-                            ->schema([
-                                CodeField::make('customHeaderCode')
-                                    ->htmlField()
-                                    ->withLineNumbers(),
-                                CodeField::make('customFooterCode')
-                                    ->htmlField()
-                                    ->withLineNumbers(),
-                            ]),
-                        Tab::make('Custom Style')
-                            ->schema([
-                                CodeField::make('customCss')
-                                    ->cssField()
-                                    ->withLineNumbers(),
-                            ]),
-                    ]),
-
-
-
-            ])
+                            Toggle::make('isEnabled')
+                                ->default(true),
+                        ]),
+                    Tab::make('SEO')
+                        ->schema([
+                            TextInput::make('author'),
+                            TextInput::make('seoTitle'),
+                            TextInput::make('seoKeyWords'),
+                            Textarea::make('seoDescription'),
+                            CodeField::make('googleTagManager')
+                                ->htmlField()
+                                ->withLineNumbers(),
+                            CodeField::make('metaPixelCode')
+                                ->htmlField()
+                                ->withLineNumbers(),
+                        ]),
+                    Tab::make('Content')
+                        ->schema([
+                            TextInput::make('paginationCount')
+                                ->integer(true)
+                                ->default(9),
+                        ]),
+                    Tab::make('Customization')
+                        ->schema([
+                            CodeField::make('customHeaderCode')
+                                ->htmlField()
+                                ->withLineNumbers(),
+                            CodeField::make('customFooterCode')
+                                ->htmlField()
+                                ->withLineNumbers(),
+                        ]),
+                    Tab::make('Custom Style')
+                        ->schema([
+                            CodeField::make('customCss')
+                                ->cssField()
+                                ->withLineNumbers(),
+                        ]),
+                ]),
         ];
 
     }
@@ -147,7 +142,6 @@ use Spatie\Valuestore\Valuestore;
         return [
 
             Action::make('Clear Cache')
-//                ->action(fn () => Artisan::call('optimize:clear'))
                 ->action(function () {
                     Artisan::call('optimize:clear');
 

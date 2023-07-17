@@ -214,7 +214,7 @@ class PostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            PostResource\RelationManagers\CommentsRelationManager::class,
         ];
     }
 

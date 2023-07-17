@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdmFormController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
@@ -23,6 +24,7 @@ Route::get('/', function () {
 })->name('home');
 Route::post('/adm-form/{link_hash}', [AdmFormController::class, 'form'])->name('adm-form');
 Route::get('/adm-search', [PageController::class, 'search'])->name('adm-search');
+Route::get('/add-comment', [CommentController::class, 'store'])->name('add-comment');
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 
 Route::get('/', [PageController::class, 'index'])->name('home');

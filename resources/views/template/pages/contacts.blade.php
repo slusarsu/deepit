@@ -65,14 +65,19 @@
                     <textarea name="message" id="message" class="form-control mb-4" placeholder="Type You Message Here" rows="5"></textarea>
                 </div>
                 <div class="col-12">
-                    <input
-                        class="g-recaptcha btn btn-outline-primary"
-                        data-sitekey="{{env('RECAPTCHA_SITE_KEY')}}"
-                        data-callback='onSubmit'
-                        data-action='submit'
-                        type="submit"
-                        value="Send Message"
-                    >
+
+                    @if(!empty(env('RECAPTCHA_SITE_KEY')))
+                        <input
+                            class="g-recaptcha btn btn-outline-primary"
+                            data-sitekey="{{env('RECAPTCHA_SITE_KEY')}}"
+                            data-callback='onSubmit'
+                            data-action='submit'
+                            type="submit"
+                            value="Send Message"
+                        >
+                    @else
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    @endif
                 </div>
             </form>
         </div>
