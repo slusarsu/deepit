@@ -147,17 +147,40 @@ use Spatie\Valuestore\Valuestore;
         return [
 
             Action::make('Clear Cache')
-                ->action(fn () => Artisan::call('optimize:clear'))
+//                ->action(fn () => Artisan::call('optimize:clear'))
+                ->action(function () {
+                    Artisan::call('optimize:clear');
+
+                    Notification::make()
+                        ->title('Fixed!')
+                        ->success()
+                        ->send();
+                })
                 ->requiresConfirmation()
                 ->color('success'),
 
             ActionGroup::make([
                 Action::make('Add Demo')
-                    ->action(fn () => Artisan::call('adm:demo'))
+                    ->action(function () {
+                        Artisan::call('adm:demo');
+
+                        Notification::make()
+                            ->title('Added demo data')
+                            ->success()
+                            ->send();
+                    })
                     ->requiresConfirmation()
                     ->color('danger'),
+
                 Action::make('Remove Demo')
-                    ->action(fn () => Artisan::call('adm:demo-remove'))
+                    ->action(function () {
+                        Artisan::call('adm:demo-remove');
+
+                        Notification::make()
+                            ->title('Removed demo data')
+                            ->success()
+                            ->send();
+                    })
                     ->requiresConfirmation()
                     ->color('danger'),
             ])->label('Demo Data')->color('danger'),
