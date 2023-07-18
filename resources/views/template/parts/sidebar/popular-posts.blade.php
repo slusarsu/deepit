@@ -2,7 +2,7 @@
     <h2 class="section-title mb-3">Recommended</h2>
     <div class="widget-body">
         <div class="widget-list">
-            !!!!!!
+
             @foreach(getPopularPosts() as $key => $post)
                 @if($key == 0)
                     <article class="card mb-4" id="popular-post-{{$post->id}}">
