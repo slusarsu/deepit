@@ -65,7 +65,7 @@ class PostService
             });
         }
 
-        return $post->with(['categories', 'tags'])->orderBy('views', 'asc')->paginate($paginationCount);
+        return $post->with(['categories', 'tags'])->orderBy('views', 'desc')->paginate($paginationCount);
     }
 
     public function searchByPhrase(string $phrase, ?int $paginationCount = 10)

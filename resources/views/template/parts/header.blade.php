@@ -2,7 +2,13 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light px-0">
             <a class="navbar-brand order-1 py-0" href="{{homeLink()}}">
-                <img loading="prelaod" decoding="async" class="img-fluid" src="{{admLogoUrl()}}" alt="{{$site['name']}}">
+
+                @if($site['isTextLogo'])
+                    <h2 class="logo-text">{{$site['name']}}</h2>
+                @else
+                    <img loading="prelaod" decoding="async" class="img-fluid" src="{{admLogoUrl()}}" alt="{{$site['name']}}">
+                @endif
+
             </a>
             <div class="navbar-actions order-3 ml-0 ml-md-4">
                 <button aria-label="navbar toggler" class="navbar-toggler border-0" type="button" data-toggle="collapse"

@@ -54,6 +54,7 @@ use Spatie\Valuestore\Valuestore;
             'footerLogo' => $this->valueStore->get('footerLogo'),
             'email' => $this->valueStore->get('email'),
             'copyright' => $this->valueStore->get('copyright'),
+            'textLogo' => $this->valueStore->get('isTextLogo') ?? false,
         ]);
     }
 
@@ -66,8 +67,6 @@ use Spatie\Valuestore\Valuestore;
                     Tab::make('Site settings')
                         ->schema([
                             TextInput::make('name'),
-                            TextInput::make('email')->email(true),
-                            TextInput::make('copyright'),
 
                             FileUpload::make('logo')
                                 ->directory('logo')
@@ -76,6 +75,13 @@ use Spatie\Valuestore\Valuestore;
                             FileUpload::make('footerLogo')
                                 ->directory('logo')
                                 ->image(),
+
+                            Toggle::make('isTextLogo')
+                                ->default(true),
+
+                            TextInput::make('email')->email(true),
+
+                            TextInput::make('copyright'),
 
                             Toggle::make('isEnabled')
                                 ->default(true),

@@ -74,6 +74,7 @@
                                         {{$post->views}}
                                     </span>
                                 </div>
+
                                 <img loading="lazy" decoding="async" src="{{$post->thumb() ?? admRandomImage()}}" alt="Post Thumbnail" class="w-100">
                             </div>
                         </a>
