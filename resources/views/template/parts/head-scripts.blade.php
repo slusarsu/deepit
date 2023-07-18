@@ -21,6 +21,7 @@
 
     <!-- # Main Style Sheet -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/site.css')}}">
 
     {!! $site['googleTagManager'] !!}
     {!! $site['metaPixelCode'] !!}
