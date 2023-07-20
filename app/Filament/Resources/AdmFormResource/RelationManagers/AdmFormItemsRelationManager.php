@@ -24,7 +24,10 @@ class AdmFormItemsRelationManager extends RelationManager
         return $form
             ->schema([
 //                TextInput::make('id')->disabled()->columnSpanFull(),
-                PrettyJson::make('payload')->columnSpanFull(),
+                PrettyJson::make('payload')
+                    ->columnSpanFull()
+                    ->limit(150, '...')
+                    ->searchable(),
             ]);
     }
 

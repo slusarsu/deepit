@@ -100,7 +100,6 @@ class AdmFormResource extends Resource
                 TextColumn::make('link_hash')
                     ->searchable(),
                 TextColumn::make('created_at')
-                    ->label(trans('adm/form.date'))
                     ->dateTime()
                     ->sortable(),
             ])
