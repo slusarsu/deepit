@@ -28,6 +28,7 @@ class AdmStartCommand extends Command
     {
         $this->call('optimize:clear');
         $this->call('key:generate');
+        $this->call('migrate:refresh');
         $this->call('migrate');
         $this->info("-- migrations done");
         $this->call('optimize:clear');

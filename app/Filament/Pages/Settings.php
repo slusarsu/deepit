@@ -43,7 +43,7 @@ use Spatie\Valuestore\Valuestore;
             'seoTitle' => $this->valueStore->get('seoTitle'),
             'seoKeyWords' => $this->valueStore->get('seoKeyWords'),
             'seoDescription' => $this->valueStore->get('seoDescription'),
-            'isEnabled' => $this->valueStore->get('isEnabled') ?? true,
+            'isEnabled' => $this->valueStore->get('isEnabled'),
             'paginationCount' => $this->valueStore->get('paginationCount') ?? 10,
             'googleTagManager' => $this->valueStore->get('googleTagManager'),
             'metaPixelCode' => $this->valueStore->get('metaPixelCode'),
@@ -54,13 +54,12 @@ use Spatie\Valuestore\Valuestore;
             'footerLogo' => $this->valueStore->get('footerLogo'),
             'email' => $this->valueStore->get('email'),
             'copyright' => $this->valueStore->get('copyright'),
-            'textLogo' => $this->valueStore->get('isTextLogo') ?? false,
+            'isTextLogo' => $this->valueStore->get('isTextLogo'),
         ]);
     }
 
     protected function getFormSchema(): array
     {
-
         return [
             Tabs::make('Heading')
                 ->tabs([

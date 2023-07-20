@@ -10,7 +10,7 @@ use Spatie\Valuestore\Valuestore;
 
 function siteSetting(): Valuestore
 {
-    return Valuestore::make(app_path('Settings/site_settings.json'));
+    return Valuestore::make(config('adm.site_setting_path'));
 }
 
 function siteSettingsAll(): array

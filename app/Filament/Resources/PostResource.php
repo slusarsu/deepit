@@ -141,6 +141,10 @@ class PostResource extends Resource
 
                                 ]),
 
+                            Select::make('type')
+                                ->options(
+                                    config('adm.post_types')
+                                )->default('text'),
 
                         ])
                         ->collapsible(),
