@@ -37,12 +37,12 @@
                 <div class="content">{!! $page->short !!}
                     <div class="mt-5">
                         <p class="h3 mb-3 font-weight-normal">
-                            <a class="text-dark" href="{{$cf['email'] ?? ''}}">
+                            <a class="text-dark" href="mailto:{{$cf['email'] ?? ''}}">
                                 {{$cf['email'] ?? ''}}
                             </a>
                         </p>
                         <p class="mb-3">
-                            <a class="text-dark" href="tel:&#43;{{$cf['phone'] ?? ''}}">&#43;{{$cf['phone'] ?? ''}}</a>
+                            <a class="text-dark" href="tel:{{$cf['phone'] ?? ''}}">{{$cf['phone'] ?? ''}}</a>
                         </p>
                         <p class="mb-2">{{$cf['address'] ?? ''}}</p>
                     </div>
@@ -73,10 +73,12 @@
                             data-callback='onSubmit'
                             data-action='submit'
                             type="submit"
-                            value="Send Message"
+                            value="{{$cf['form_button_text'] ?? ''}}"
                         >
                     @else
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary">
+                            {{$cf['form_button_text'] ?? ''}}
+                        </button>
                     @endif
                 </div>
             </form>

@@ -44,7 +44,14 @@ class PageSeeder extends Seeder
                         "field_name" => "form_hash"
                     ],
                     "type" => "text_input"
-                ]
+                ],
+                [
+                    "data" => [
+                        "text" => "Send Message",
+                        "field_name" => "form_button_text"
+                    ],
+                    "type" => "text_input"
+                ],
             ],
             'images' => [],
             'template' => 'contacts',
