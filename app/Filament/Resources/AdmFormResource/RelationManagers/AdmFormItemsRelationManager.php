@@ -24,10 +24,7 @@ class AdmFormItemsRelationManager extends RelationManager
         return $form
             ->schema([
 //                TextInput::make('id')->disabled()->columnSpanFull(),
-                PrettyJson::make('payload')
-                    ->columnSpanFull()
-                    ->limit(150, '...')
-                    ->searchable(),
+                PrettyJson::make('payload')->columnSpanFull(),
             ]);
     }
 
@@ -36,6 +33,7 @@ class AdmFormItemsRelationManager extends RelationManager
         return $table
             ->columns([
                 TextColumn::make('id')->sortable(),
+
                 BadgeColumn::make('status')
                     ->colors([
                         'primary',
@@ -43,7 +41,10 @@ class AdmFormItemsRelationManager extends RelationManager
                         'warning' => AdmMailStatusEnum::NOT_SENT->value,
                         'success' => AdmMailStatusEnum::SENT->value,
                     ]),
-                TextColumn::make('payload')->searchable(),
+
+                TextColumn::make('payload')
+                    ->limit(150, '...')
+                    ->searchable(),
             ])
             ->filters([
                 //
