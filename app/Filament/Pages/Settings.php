@@ -182,6 +182,18 @@ use Spatie\Valuestore\Valuestore;
                     })
                     ->requiresConfirmation()
                     ->color('danger'),
+
+                Action::make('Reinstall site (clear all data!!)')
+                    ->action(function () {
+                        Artisan::call('adm:restart');
+
+                        Notification::make()
+                            ->title('Removed all demo')
+                            ->success()
+                            ->send();
+                    })
+                    ->requiresConfirmation()
+                    ->color('danger'),
             ])->label('Demo Data')->color('danger'),
         ];
     }
