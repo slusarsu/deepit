@@ -23,14 +23,10 @@
                                     {{$post->title}}
                                 </a>
                             </h3>
-                            <p class="card-text">
-                                {{$post->shortLimited()}}
-                            </p>
-                            <div class="content"> <a class="read-more-btn" href="{{$post->link()}}">Read Full Article</a>
-                            </div>
                         </div>
 
                     </article>
+                    @continue
                 @endif
 
                 <a class="media align-items-center" href="{{$post->link()}}" id="popular-post-{{$post->id}}">
@@ -38,9 +34,6 @@
 
                     <div class="media-body ml-3">
                         <h3 style="margin-top:-5px">{{$post->title}}</h3>
-                        <p class="mb-0 small">
-                            {{$post->shortLimited()}}
-                        </p>
                     </div>
                 </a>
             @endforeach
