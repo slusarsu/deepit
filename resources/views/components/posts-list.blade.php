@@ -48,12 +48,6 @@
                                 </li>
                             </ul>
 
-                            <div class="content">
-                                <a class="read-more-btn" href="{{$post->link()}}">
-                                    Read Full Article
-                                </a>
-                            </div>
-
                         </div>
                     </article>
                 </div>
