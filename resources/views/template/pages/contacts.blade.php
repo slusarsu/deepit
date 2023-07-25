@@ -87,5 +87,6 @@
     <script>
         console.log(@json($cf));
         console.log(@json($page));
+        console.log(@json($page->customFields()));
     </script>
 @endsection
