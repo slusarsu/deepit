@@ -60,9 +60,11 @@ class Page extends Model
 
         foreach($this->custom_fields as $field) {
             $fieldName = $field['data']['field_name'];
-            $fields[$fieldName] = Arr::first($field['data']);
+            $dataField= Arr::where($field['data'], function ($value, $key) {
+                return $key != 'field_name';
+            });
+            $fields[$fieldName] = Arr::first($dataField);
         }
-
         return $fields;
     }
 
