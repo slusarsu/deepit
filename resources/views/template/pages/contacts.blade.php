@@ -73,8 +73,7 @@
                             data-callback='onSubmit'
                             data-action='submit'
                             type="submit"
-{{--                            value="{{$cf['form_button_text'] ?? ''}}"--}}
-                            value="{{$cf['form_button_text']}}"
+                            value="{{$cf['form_button_text'] ?? ''}}"
                         >
                     @else
                         <button type="submit" class="btn btn-primary">
