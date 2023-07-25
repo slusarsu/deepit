@@ -86,5 +86,6 @@
     </div>
     <script>
         console.log(@json($cf));
+        console.log(@json($page));
     </script>
 @endsection
