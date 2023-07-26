@@ -9,16 +9,24 @@ class PageService
 {
     public static function getListOfPageTemplates(): array
     {
-        $pagePaths = Storage::disk('views')->files('template/pages');
-        $templates = [];
-        foreach ($pagePaths as $item) {
-            $itemArr = explode('/', $item);
-            $last = end($itemArr);
-            $result = str_replace('.blade.php','',$last);
-            $templates[$result] = $result;
+        return AdmService::getViewBladeFileNames('template/pages');
+    }
+
+    public static function getPageTemplateName(string $templateName): string
+    {
+        $template = $templateName;
+
+        $templates = self::getListOfPageTemplates();
+
+        if(!in_array($templateName, $templates)) {
+            $template = 'page';
         }
 
-        return $templates;
+        if(!in_array('page', $templates)) {
+            abort(404);
+        }
+
+        return $template;
     }
 
     public function getOneBySlug(string $slug): object|null

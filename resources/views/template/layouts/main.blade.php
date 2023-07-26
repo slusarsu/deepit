@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@includeIf('template.parts.head-scripts')
+@includeIf('template.parts.header.head-scripts')
 
 <body>
 
-@includeIf('template.parts.header')
+@includeIf('template.parts.header.header')
 
 <main>
     <section class="section">
@@ -16,7 +16,7 @@
                     @yield('content')
                 </div>
                 <div class="col-lg-4">
-                    @includeIf('template.parts.sidebar')
+                    @includeIf('template.parts.sidebar.sidebar')
                 </div>
             </div>
             @endif
@@ -30,9 +30,9 @@
     </section>
 </main>
 
-@includeIf('template.parts.footer')
+@includeIf('template.parts.footer.footer')
 
-@includeIf('template.parts.footer-scripts')
+@includeIf('template.parts.footer.footer-scripts')
 
 </body>
 </html>

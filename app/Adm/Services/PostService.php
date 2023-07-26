@@ -7,7 +7,30 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 
 class PostService
-{    public function getAll(?int $paginationCount = 10): LengthAwarePaginator
+{
+    public static function getListOfPostTemplates(): array
+    {
+        return AdmService::getViewBladeFileNames('template/posts');
+    }
+
+    public static function getPostTemplateName(string $type): string
+    {
+        $template = 'post-'.$type;
+
+        $templates = self::getListOfPostTemplates();
+
+        if(!in_array($template, $templates)) {
+            $template = 'post';
+        }
+
+        if(!in_array('post', $templates)) {
+            abort(404);
+        }
+
+        return $template;
+    }
+
+    public function getAll(?int $paginationCount = 10): LengthAwarePaginator
     {
         return Post::query()
             ->active()

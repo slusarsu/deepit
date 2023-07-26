@@ -35,9 +35,10 @@ class PageController extends Controller
         $cf = $page->customFields();
         $thumb = $page->thumb();
         $images = $page->images();
-        $template = !empty($page->template) ? $page->template : 'page';
+        $template = $page->template ?? 'page';
+        $templateName = PageService::getPageTemplateName($template);
 
-        return view('template.pages.'.$template, compact('page', 'cf', 'thumb', 'images'));
+        return view('template.pages.'.$templateName, compact('page', 'cf', 'thumb', 'images'));
     }
 
     public function search(Request $request)
