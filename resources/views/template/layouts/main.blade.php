@@ -34,6 +34,8 @@
 
 @includeIf('template.parts.footer.footer-scripts')
 
+<x-adm-top-bar/>
+
 </body>
 </html>
 
