@@ -5,7 +5,7 @@
 /public/storage
 /storage/*.key
 /vendor
-/app/Adm/Settings/*
+app/Adm/Settings/*
 .env
 .env.backup
 .env.production
