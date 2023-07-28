@@ -57,3 +57,8 @@ It is a Filament based web application (cms) for Laravel developers. After insta
 
 login: admin@admin.com
 password: password
+
+## Recaptcha V3 settings 
+### add credentials in .env
+- RECAPTCHA_SITE_KEY=
+- RECAPTCHA_SECRET_KEY=
