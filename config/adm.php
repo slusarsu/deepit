@@ -4,7 +4,7 @@ return [
 
     'site_setting_path' => app_path('Adm/Settings/site_settings.json'),
 
-    'paginationCount' => 9,
+    'paginationCount' => 11,
 
     'chunk_positions' => [
         'sidebar' => 'Sidebar',

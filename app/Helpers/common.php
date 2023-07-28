@@ -28,7 +28,7 @@ function admLogoUrl(?string $logoName = 'logo'): string
 function globalPaginationCount(): int
 {
     $settingCount = siteSetting()->get('paginationCount');
-    $configCount = config('adm', 'paginationCount');
+    $configCount = config('adm.paginationCount');
 
     return !empty($settingCount) ? $settingCount : $configCount;
 }

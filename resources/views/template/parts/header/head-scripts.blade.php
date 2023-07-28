@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>{{$site['name']}} - {{$title ?? $site['seoTitle']}}</title>
+    <title>{{$site['name'] ?? env('APP_NAME')}} - {{$title ?? ($site['seoTitle'])}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <meta name="description" content="{{$seoDescription ?? $site['seoDescription']}}">
     <meta name="keywords" content="{{$seoKeyWords ?? $site['seoKeyWords']}}">
