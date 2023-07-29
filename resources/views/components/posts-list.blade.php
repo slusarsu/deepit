@@ -20,7 +20,11 @@
                                         {{$post->views}}
                                     </span>
                                 </div>
-                                <img loading="lazy" decoding="async" src="{{$post->thumb() ?? admRandomImage()}}" alt="{{$post->title}}" class="w-100">
+
+                                @if(!empty($post->thumb()) || !empty($site['showRandomImages']))
+                                    <img loading="lazy" decoding="async" src="{{$post->thumb() ?? admRandomImage()}}" alt="{{$post->title}}" class="w-100">
+                                @endif
+
                             </div>
                         </a>
                         <div class="card-body px-0 pb-1">
@@ -69,7 +73,10 @@
                                     </span>
                                 </div>
 
-                                <img loading="lazy" decoding="async" src="{{$post->thumb() ?? admRandomImage()}}" alt="{{$post->title}}" class="w-100">
+                                @if(!empty($post->thumb()) || !empty($site['showRandomImages']))
+                                    <img loading="lazy" decoding="async" src="{{$post->thumb() ?? admRandomImage()}}" alt="{{$post->title}}" class="w-100">
+                                @endif
+
                             </div>
                         </a>
                         <div class="card-body px-0 pb-0">

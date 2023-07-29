@@ -71,14 +71,21 @@ class AdmTopBar extends Component
     public function editUrl(): bool
     {
         if(!$this->checkPage()) {
+            $this->isEditable = false;
             return '';
         }
         $model = array_search($this->pageType, $this->pageTypes);
         if(!$model) {
+            $this->isEditable = false;
             return '';
         }
 
         $this->record = resolve($model)->query()->where('slug', $this->slug)->first();
+
+        if(!$this->record ) {
+            $this->isEditable = false;
+            return '';
+        }
         $this->pluralTypeName = $this->pluralPageTypes[$this->pageType];
         return '/admin/'.$this->pluralTypeName.'/'.$this->record->id.'/edit';
     }

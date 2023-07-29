@@ -18,7 +18,8 @@
 
     <!-- # CSS Plugins -->
     <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap/bootstrap.min.css')}}">
-
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-dark.min.css">
+    <link rel="stylesheet" href="{{asset('assets/plugins/lightbox2/dist/css/lightbox.min.css')}}">
     <!-- # Main Style Sheet -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/site.css')}}">

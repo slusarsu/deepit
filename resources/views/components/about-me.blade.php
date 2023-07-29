@@ -9,7 +9,11 @@
 
     <div class="widget">
         <div class="widget-body">
-            <img loading="lazy" decoding="async" src="{{$page->thumb() ?? admRandomImage()}}" alt="{{$page->title}}" class="w-100 author-thumb-sm d-block">
+
+            @if($page->thumb())
+                <img loading="lazy" decoding="async" src="{{$page->thumb()}}" alt="{{$page->title}}" class="w-100 author-thumb-sm d-block">
+            @endif
+
             <h2 class="widget-title my-3">{{$cf['name'] ?? ''}}</h2>
             <p class="mb-3 pb-2">
                 {!! $page->short !!}

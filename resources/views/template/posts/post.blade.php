@@ -16,8 +16,6 @@
         }
     </script>
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-dark.min.css">
-{{--    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">--}}
 @endpush
 
 @section('content')
@@ -29,7 +27,9 @@
         <a href="{{$post->link()}}">{{$post->title}}</a>
     </div>
     <article>
-        <img loading="lazy" decoding="async" src="{{$thumb ?? admRandomImage()}}" alt="Post Thumbnail" class="w-100">
+        @if(!empty($thumb) || !empty($site['showRandomImages']))
+            <img loading="lazy" decoding="async" src="{{$thumb ?? admRandomImage()}}" alt="{{$post->title}}" class="w-100">
+        @endif
 
         <div class="d-flex justify-content-between mt-3">
             <div>
@@ -58,6 +58,21 @@
         <div class="content text-left">
             {!! $post->content !!}
         </div>
+        @if(!empty($images))
+            <hr>
+            <h3>Images</h3>
+            <div class="row">
+                @foreach($images as $image)
+                    <div class="col-12 col-md-6 my-3">
+                        <a class="example-image-link" href="{{$image}}" data-lightbox="example-set" data-title="{{$post->title}}">
+                            <img src="{{$image}}" alt="{{$post->title}}" class="w-100" data-lightbox="example-set">
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+
+
         <ul class="post-meta my-4">
             @foreach($post->tags as $tag)
                 <li>

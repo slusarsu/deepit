@@ -29,33 +29,30 @@ use Spatie\Valuestore\Valuestore;
 
     protected Valuestore $valueStore;
 
+    protected array $parameters;
+
     public function __construct($id = null)
     {
         parent::__construct($id);
         $this->valueStore = siteSetting();
+
+        $this->parameters = config('adm.setting_parameters');
     }
 
     public function mount(): void
     {
-        $this->form->fill([
-            'name' => $this->valueStore->get('name'),
-            'author' => $this->valueStore->get('author'),
-            'seoTitle' => $this->valueStore->get('seoTitle'),
-            'seoKeyWords' => $this->valueStore->get('seoKeyWords'),
-            'seoDescription' => $this->valueStore->get('seoDescription'),
-            'isEnabled' => $this->valueStore->get('isEnabled'),
-            'paginationCount' => $this->valueStore->get('paginationCount') ?? 10,
-            'googleTagManager' => $this->valueStore->get('googleTagManager'),
-            'metaPixelCode' => $this->valueStore->get('metaPixelCode'),
-            'customHeaderCode' => $this->valueStore->get('customHeaderCode'),
-            'customFooterCode' => $this->valueStore->get('customFooterCode'),
-            'customCss' => $this->valueStore->get('customCss'),
-            'logo' => $this->valueStore->get('logo'),
-            'footerLogo' => $this->valueStore->get('footerLogo'),
-            'email' => $this->valueStore->get('email'),
-            'copyright' => $this->valueStore->get('copyright'),
-            'isTextLogo' => $this->valueStore->get('isTextLogo'),
-        ]);
+        $this->form->fill($this->prepareParameters());
+    }
+
+    protected function prepareParameters(): array
+    {
+        $parameters = [];
+
+        foreach ($this->parameters as $parameter => $value) {
+            $parameters[$parameter] = $this->valueStore->get($parameter);
+        }
+
+        return $parameters;
     }
 
     protected function getFormSchema(): array
@@ -103,6 +100,9 @@ use Spatie\Valuestore\Valuestore;
                             TextInput::make('paginationCount')
                                 ->integer(true)
                                 ->default(9),
+
+                            Toggle::make('showRandomImages')
+                                ->default(true),
                         ]),
                     Tab::make('Customization')
                         ->schema([
@@ -126,7 +126,6 @@ use Spatie\Valuestore\Valuestore;
 
     public function submit(): void
     {
-
         $result = $this->form->getState();
 
         foreach ($result as $field => $value) {

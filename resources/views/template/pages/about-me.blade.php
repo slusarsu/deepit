@@ -12,7 +12,10 @@
         <a href="{{$page->link()}}">{{$page->title}}</a>
     </div>
 
-    <img loading="lazy" decoding="async" src="{{$thumb ?? admRandomImage()}}" class="img-fluid w-100 mb-4" alt="Author Image">
+    @if($thumb)
+        <img loading="lazy" decoding="async" src="{{$thumb}}" class="img-fluid w-100 mb-4" alt="{{$page->title}}">
+    @endif
+
     <div class="d-flex justify-content-between mt-3">
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style="margin-right:5px;margin-top:-4px" class="text-dark" viewBox="0 0 16 16">
